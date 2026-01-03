@@ -1,33 +1,44 @@
 # JavaScript History & ECMAScript (Intermediate)
 
-## Origin
-JavaScript was created in 1995 by Brendan Eich.
-Its purpose was **client-side scripting**, not large-scale applications.
+JavaScript was created in 1995 with the goal of enabling client-side scripting.
+It was not originally designed for large-scale applications.
 
 ---
 
-## ECMAScript
-ECMAScript defines:
+## ECMAScript Standard
+
+ECMAScript is the **official language specification** that defines:
 - Syntax
 - Semantics
 - Core language features
 
-JavaScript engines implement ECMAScript.
+JavaScript engines implement ECMAScript standards.
 
 ---
 
-## Major Evolution
-- ES5 → Stability
-- ES6 (2015) → Modern JavaScript foundation
-- ES2016+ → Continuous improvements
+## Evolution Timeline
+
+- ES5 (2009): Stability and wide browser support
+- ES6 / ES2015: Major language redesign
+- ES2016+: Incremental improvements every year
 
 ---
 
-## Why ES6 Matters
-- Block scoping
+## Why ES6 Changed Everything
+
+ES6 introduced:
+- Block scoping (`let`, `const`)
 - Arrow functions
 - Classes
 - Modules
-- Better async handling
+- Improved asynchronous handling
 
-Modern JavaScript development **assumes ES6+**.
+Modern JavaScript development assumes ES6+ by default.
+
+---
+
+## Practical Implication
+Understanding ECMAScript versions helps you:
+- Read legacy code
+- Write future-proof code
+- Debug cross-browser issues

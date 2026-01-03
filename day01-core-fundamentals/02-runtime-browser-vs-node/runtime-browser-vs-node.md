@@ -1,30 +1,44 @@
 # JavaScript Runtime Environments (Intermediate)
 
-## Runtime vs Language
 JavaScript alone cannot:
 - Access files
-- Access DOM
-- Perform network I/O
+- Manipulate the DOM
+- Perform network operations
 
-These are provided by the **runtime**.
+These capabilities are provided by the **runtime environment**.
 
 ---
 
 ## Browser Runtime
+
 Provides:
 - DOM (Document Object Model)
 - BOM (Browser Object Model)
-- Web APIs
+- Web APIs (fetch, timers, storage)
+
+Used primarily for client-side applications.
 
 ---
 
 ## Node.js Runtime
+
 Provides:
 - File system access
-- Process management
-- Networking primitives
+- Process control
+- Networking
+- OS-level APIs
+
+Used for server-side and tooling applications.
 
 ---
 
-## Practical Implication
-JavaScript behavior = **Language + Runtime APIs**
+## Key Insight
+JavaScript behavior is the result of:
+
+**Language specification + Runtime APIs**
+
+---
+
+## Design Principle
+Write environment-agnostic JavaScript where possible.
+Abstract environment-specific logic to improve portability.

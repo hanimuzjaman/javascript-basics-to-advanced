@@ -1,33 +1,43 @@
-/**
- * Variable Declaration & Scope
- */
+/* =====================================================
+   BASIC — Variable Declaration
+===================================================== */
 
-// var is function-scoped
-function testVar() {
+var a = 10;
+let b = 20;
+const c = 30;
+
+console.log(a, b, c);
+
+/* =====================================================
+   INTERMEDIATE — Scope Behavior
+===================================================== */
+
+function varScope() {
   if (true) {
-    var x = 10;
+    var x = 100;
   }
-  console.log(x); // Accessible
+  console.log(x); // accessible
 }
+varScope();
 
-// let & const are block-scoped
-function testLetConst() {
+function blockScope() {
   if (true) {
-    let y = 20;
-    const z = 30;
+    let y = 200;
+    const z = 300;
     console.log(y, z);
   }
-  // console.log(y, z); // ❌ ReferenceError
 }
+blockScope();
 
-testVar();
-testLetConst();
+/* =====================================================
+   ADVANCED — Hoisting & TDZ
+===================================================== */
 
-/**
- * Temporal Dead Zone (TDZ)
- */
+console.log(hoisted); // undefined
+var hoisted = 50;
+
 {
-  // console.log(a); // ❌ TDZ
-  let a = 100;
-  console.log(a);
+  // console.log(tdz); // ReferenceError
+  let tdz = "safe";
+  console.log(tdz);
 }

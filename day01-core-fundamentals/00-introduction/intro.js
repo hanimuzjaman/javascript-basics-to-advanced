@@ -1,36 +1,50 @@
-/**
- * JavaScript Introduction – Runtime & Language Characteristics
- *
- * JavaScript is a high-level, interpreted language executed by a JavaScript engine
- * (V8, SpiderMonkey, JavaScriptCore).
- *
- * It follows:
- * - Single-threaded execution model
- * - Event-driven architecture
- * - Prototype-based object system
- */
+/* =====================================================
+   BASIC — Output & Sequential Execution
+===================================================== */
 
-// JavaScript execution is synchronous by default
-console.log("Start execution");
+// JavaScript executes statements sequentially
+console.log("Hello JavaScript");
+console.log("Execution is synchronous by default");
 
-// Function execution is pushed to the call stack
+/* =====================================================
+   INTERMEDIATE — Functions & Runtime Awareness
+===================================================== */
+
+// Function definition
 function greet(name) {
-  return `Hello, ${name}`;
+  return "Hello, " + name;
 }
 
-console.log(greet("JavaScript"));
+// Function invocation
+console.log(greet("World"));
 
-console.log("End execution");
+/*
+JavaScript does not execute directly on hardware.
+It runs inside a runtime:
+- Browser
+- Node.js
+*/
 
-/**
- * JavaScript is:
- * - Dynamically typed (types resolved at runtime)
- * - Weakly typed (implicit coercion allowed)
- */
+/* =====================================================
+   ADVANCED — Execution Order & Dynamic Typing
+===================================================== */
 
-// Dynamic typing example
+console.log("Start");
+
+function task() {
+  console.log("Task executed");
+}
+
+task();
+
+console.log("End");
+
+// Dynamic typing
 let value = 10;
-value = "ten";
-value = true;
+console.log(typeof value);
 
-console.log("Dynamic value:", value);
+value = "ten";
+console.log(typeof value);
+
+value = true;
+console.log(typeof value);

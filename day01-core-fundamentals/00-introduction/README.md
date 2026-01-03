@@ -1,40 +1,47 @@
-# JavaScript — Introduction (Intermediate)
-
-## What JavaScript Actually Is
-JavaScript is a **high-level, dynamically typed, interpreted programming language**
-designed to execute inside **runtime environments** such as browsers and Node.js.
-
-The language itself is **runtime-agnostic**.  
-Capabilities come from the **environment**, not the language.
+# JavaScript Introduction (Basic → Advanced)
 
 ---
 
-## Key Architectural Properties
+## BASIC — What is JavaScript?
 
-### 1. Single-Threaded
-JavaScript executes one call stack at a time.
-Concurrency is achieved via the **event loop**, not multithreading.
+JavaScript is a programming language used to make applications interactive.
+It is widely used in:
+- Web browsers
+- Servers (Node.js)
+- Desktop & mobile applications
 
-### 2. Event-Driven
-Execution reacts to:
-- User events
-- Network responses
-- Timers
-- Promises
-
-### 3. Non-Blocking
-I/O operations are delegated to environment APIs and executed asynchronously.
+JavaScript code is executed **line by line**.
 
 ---
 
-## JavaScript vs ECMAScript
-- **ECMAScript** → language specification
-- **JavaScript** → ECMAScript + runtime APIs
+## INTERMEDIATE — Language vs Runtime
+
+JavaScript is a **high-level, dynamically typed, interpreted language**.
+
+Important distinction:
+- JavaScript (language) → syntax & rules
+- Runtime (Browser / Node.js) → APIs & execution environment
+
+JavaScript alone cannot:
+- Access files
+- Manipulate HTML
+- Make network requests
+
+These capabilities come from the **runtime**, not the language.
 
 ---
 
-## Typical Use Cases
-- Web applications
-- Backend services
-- CLI tools
-- Mobile & desktop applications
+## ADVANCED — Execution Model
+
+JavaScript follows a **single-threaded execution model**.
+
+Core components:
+- Call Stack
+- Execution Context
+- Event Loop (managed by runtime)
+
+Concurrency is achieved **without multithreading**.
+Understanding this is critical for:
+- Async programming
+- Debugging
+- Performance optimization

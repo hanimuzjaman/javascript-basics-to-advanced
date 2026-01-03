@@ -1,57 +1,152 @@
-
 /**
- * CONDITIONAL EXECUTION
+ * CONDITIONAL EXECUTION — BASIC → INTERMEDIATE → ADVANCED
  *
- * Conditionals control program flow.
+ * Conditionals determine how code flows based on data.
  * Poor conditional design leads to:
- * - Hard-to-read code
- * - Logical duplication
- * - Bugs in edge cases
+ * - Deep nesting
+ * - Duplicate logic
+ * - Hard-to-maintain code
+ * - Hidden edge-case bugs
  */
 
-const score = 78;
+/* =====================================================
+   BASIC — Simple Conditions
+===================================================== */
 
-/* -----------------------------------------
-   RANGE-BASED CONDITIONS (if-else)
------------------------------------------ */
+// Basic if statement
+const age = 20;
 
-if (score >= 90) {
-  console.log("Grade A");
-} else if (score >= 75) {
-  console.log("Grade B");
-} else if (score >= 60) {
-  console.log("Grade C");
-} else {
-  console.log("Fail");
+if (age >= 18) {
+  console.log("User is an adult");
 }
 
-/* -----------------------------------------
-   VALUE-BASED CONDITIONS (switch)
------------------------------------------ */
+// if–else
+const isLoggedIn = false;
 
+if (isLoggedIn) {
+  console.log("Show dashboard");
+} else {
+  console.log("Redirect to login");
+}
+
+/* =====================================================
+   INTERMEDIATE — Range-Based Conditions
+===================================================== */
+
+// Realistic grading system
+const score = 78;
+
+let grade;
+
+if (score >= 90 && score <= 100) {
+  grade = "A";
+} else if (score >= 75 && score < 90) {
+  grade = "B";
+} else if (score >= 60 && score < 75) {
+  grade = "C";
+} else if (score >= 0 && score < 60) {
+  grade = "Fail";
+} else {
+  grade = "Invalid score"; // defensive programming
+}
+
+console.log("Grade:", grade);
+
+/* =====================================================
+   INTERMEDIATE — Value-Based Conditions (switch)
+===================================================== */
+
+// Role-based access control (RBAC)
 const role = "admin";
+
+let permissions;
 
 switch (role) {
   case "admin":
-    console.log("Full access");
+    permissions = ["read", "write", "delete"];
     break;
   case "editor":
-    console.log("Edit access");
+    permissions = ["read", "write"];
     break;
   case "viewer":
-    console.log("Read-only access");
+    permissions = ["read"];
     break;
   default:
-    console.log("No access");
+    permissions = [];
 }
 
-/* -----------------------------------------
-   CONDITIONAL RETURN (GUARD CLAUSE)
------------------------------------------ */
+console.log("Permissions:", permissions);
 
-function withdraw(amount) {
-  if (amount <= 0) return "Invalid amount";
-  return "Processing withdrawal";
+/* =====================================================
+   INTERMEDIATE — Conditional Expressions
+===================================================== */
+
+// Ternary for simple decisions
+const isVerified = true;
+const badge = isVerified ? "Verified User" : "Unverified User";
+console.log(badge);
+
+/* =====================================================
+   ADVANCED — Guard Clauses (Best Practice)
+===================================================== */
+
+/**
+ * Processes a withdrawal request
+ * Demonstrates early exits instead of nested conditions
+ */
+function withdraw(amount, balance) {
+  if (typeof amount !== "number") return "Invalid amount type";
+  if (amount <= 0) return "Amount must be greater than zero";
+  if (amount > balance) return "Insufficient balance";
+
+  return "Withdrawal successful";
 }
 
-console.log(withdraw(100));
+console.log(withdraw(500, 1000));
+console.log(withdraw(1500, 1000));
+
+/* =====================================================
+   ADVANCED — Avoiding Deep Nesting (Anti-Pattern vs Fix)
+===================================================== */
+
+// ❌ Anti-pattern: deeply nested conditions
+function loginUserBad(user) {
+  if (user) {
+    if (user.isActive) {
+      if (user.isVerified) {
+        return "Login successful";
+      }
+    }
+  }
+  return "Login failed";
+}
+
+// ✅ Improved version using guard clauses
+function loginUserGood(user) {
+  if (!user) return "User not found";
+  if (!user.isActive) return "User inactive";
+  if (!user.isVerified) return "User not verified";
+
+  return "Login successful";
+}
+
+const user = { isActive: true, isVerified: true };
+console.log(loginUserGood(user));
+
+/* =====================================================
+   ADVANCED — Conditional Logic as Data (Scalable Pattern)
+===================================================== */
+
+// Replacing large switch/if-else chains
+const roleAccessMap = {
+  admin: "Full access",
+  editor: "Edit access",
+  viewer: "Read-only access",
+};
+
+function getAccessLevel(role) {
+  return roleAccessMap[role] ?? "No access";
+}
+
+console.log(getAccessLevel("admin"));
+console.log(getAccessLevel("guest"));
