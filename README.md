@@ -126,7 +126,7 @@ A rigorous, 10-day intensive curriculum designed to take developers from core sy
 ---
 
 ## 🚀 Usage Instructions
-1. **Clone & Install:** `git clone <repo-url>`
+1. **Clone & Install:** `git clone https://github.com/hanimuzjaman/javascript-basics-to-advanced`
 2. **Daily Routine:** Review the `/notes` for the day, then complete the exercises in `/practice`.
 3. **Validate:** Run `npm test` to verify your implementations against the provided test cases.
 
